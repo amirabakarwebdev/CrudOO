@@ -5,7 +5,6 @@
  *
  */
 
-
 if (isset($_GET['disconnect'])) {
 
     /*
@@ -15,6 +14,14 @@ if (isset($_GET['disconnect'])) {
      */
 
     $theuserM->deconnecterSession();
+
+    // on veut gérer les étudiants
+}elseif (isset($_GET['adminstudent'])){
+
+    /* Appel du controller gérant les étudiants
+     * !!!!
+    */
+    require_once "studentController.php";
 
 
 }elseif (isset($_GET['delete'])&&ctype_digit($_GET['delete'])&&!empty($_GET['delete'])){
