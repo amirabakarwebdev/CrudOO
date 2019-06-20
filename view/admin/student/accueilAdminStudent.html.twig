@@ -17,12 +17,12 @@
                 <p class="lead">Gestion des stagiaires et des sections</p>
             </div>
             <div class="col-lg-6 text-left">
-                <a href="?admnstudent&addstudent">Ajouter un stagiaire</a>
+                <a href="?adminstudent&addstudent">Ajouter un stagiaire</a>
                 {# Faites apparaître tous les stagiaires (celles du menu) cliquables dans un nouveau h4, sinon écrivez "Pas encore d'éléments dans le menu" #}
-                {% for item in section %}
-                    <h4 class="mt-3">{{ item.thetitle }} | <a href="?update={{ item.idthesection }}">modifier</a> | <a href="?delete={{ item.idthesection }}">supprimer</a></h4>
+                {% for item in student %}
+                    <h4 class="mt-3">{{ item.thename}} {{ item.thesurname}}| <a href="?update={{ item.idthestudent }}">modifier</a> | <a href="?delete={{ item.idthestudent }}">supprimer</a></h4>
                     <p>{{ item.thedesc|truncate(100,true) }}</p>
-                    <h6>Stagiaires:</h6>
+                    <h6>Sections:</h6>
                     {# création de 2 variables pour éclater (avec split) le nom et prénom des stagiaires #}
                     {% set thename = item.thename|split("|||") %}
                     {% set thesurname = item.thesurname|split("|||") %}

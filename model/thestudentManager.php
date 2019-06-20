@@ -33,4 +33,21 @@ class thestudentManager
         return $recup->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
+    // on sélectionne les étudiants de la section actuelle grâce à son id
+    public function selectionnerStagiaire(): array {
+
+        $sql="SELECT thestudent.*, thesection.thetitle
+	FROM thestudent
+    left JOIN thesection_has_thestudent
+		ON thesection_has_thestudent.thestudent_idthestudent= thestudent.idthestudent left JOIN thesection ON thesection.idthesection = thesection_has_thestudent.thesection_idthesection;";
+
+        $recup = $this->db->query($sql);
+
+
+        if($recup->rowCount() ===0) return [];
+
+        return $recup->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }
