@@ -50,4 +50,20 @@ class thestudentManager
         return $recup->fetchAll(PDO::FETCH_ASSOC);
 
     }
-}
+
+    public function ajouterStagiaire(thestudent $data): bool {
+        $sql = "INSERT INTO thestudent(thename, thesurname) VALUES (?,?)";
+
+        $insert = $this->db->prepare($sql);
+        $insert->bindValue(1, $data->getThename(), PDO::PARAM_STR);
+        $insert->bindValue(2, $data->getThesurname(), PDO::PARAM_STR);
+
+        try{
+            $insert->execute();
+            return true;
+        }catch(PDOExeception $e){
+            echo $e->getCode();
+            return false;
+        }
+      }
+   }

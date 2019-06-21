@@ -90,9 +90,6 @@ if (isset($_GET['disconnect'])) {
 
     }
 
-
-
-
 }elseif (isset($_GET['addsection'])){
 
     /*
@@ -129,8 +126,6 @@ if (isset($_GET['disconnect'])) {
 
     }
 
-
-
 } else {
 
     /*
@@ -143,6 +138,6 @@ if (isset($_GET['disconnect'])) {
 
     // on va chercher les sections et leurs étudiants (si il y en a)
     $recup = $thesectionM->selectionnerSectionIndexAdmin();
-    echo $twig->render('admin/accueilAdmin.html.twig', ["section"=>$recup]);
+    echo $twig->render('admin/accueilAdmin.html.twig', ["section" => $recup]);
 
 }
