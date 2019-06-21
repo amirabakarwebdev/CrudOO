@@ -37,7 +37,7 @@ class thestudentManager
     // on sélectionne les étudiants de la section actuelle grâce à son id
     public function selectionnerStagiaire(): array {
 
-        $sql="SELECT thestudent.*, GROUP_CONCAT(thesection.thetitle SEPARATOR '|||') 
+        $sql="SELECT thestudent.*, GROUP_CONCAT(thesection.thetitle SEPARATOR ' / ') 
                 FROM thestudent 
                     LEFT JOIN thesection_has_thestudent 
                     ON thesection_has_thestudent.thestudent_idthestudent= thestudent.idthestudent 

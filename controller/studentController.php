@@ -21,7 +21,8 @@ if (isset($_GET['addstagiaire'])){
 // qui n'ont pas de section également
 
     // on va chercher les stagiaires avec section et les stagiaire sans section
-    $recup = $thestudentM->selectionnerStagiaire();
+    $recups = $thestudentM->selectionnerStagiaire();
+    var_dump($recups);
     echo $twig->render('admin/student/accueilAdminstudent.html.twig', ["student"=>$recup]);
 
 }
