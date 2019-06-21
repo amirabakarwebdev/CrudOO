@@ -22,16 +22,15 @@ require_once "config.php";
 // composer vendor loading (for twig)
 require_once 'vendor/autoload.php';
 
-// Initialize twig templating system
+// Initialize twig templating system - !(PRODUCT) => mod dev
 $loader = new \Twig\Loader\FilesystemLoader('view/');
 $twig = new \Twig\Environment($loader, [
-    'debug' => true,
+    'debug' => !(PRODUCT),
 ]);
 // twig extension for text
 $twig->addExtension(new Twig_Extensions_Extension_Text());
 // twig extension for debug
 $twig->addExtension(new \Twig\Extension\DebugExtension());
-
 /*
  * create class autoload - find class into model's folder
  */
